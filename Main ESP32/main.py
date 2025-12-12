@@ -1,7 +1,6 @@
 from machine import Pin,ADC
 from time import sleep
 import dht
-
 #Variables
 sensorLuz = Pin(22,Pin.IN)
 actuadorLuz = Pin (25,Pin.OUT)
@@ -14,7 +13,6 @@ actuadorNivel = Pin(18, Pin.OUT)
 
 sensorT = dht.DHT11(Pin(4))
 actuadorT = Pin(27,Pin.OUT)
-
 
 while True:
   #Circuito Luz
@@ -44,7 +42,6 @@ while True:
         actuadorNivel.value(0)
   else:
         actuadorNivel.value(1)
-
   #Circuito temperatura
   try:
     sensorT.measure()
@@ -57,8 +54,5 @@ while True:
       actuadorT.value(0)
     
   except OSError:
-    print ("Fallo al leer el DHT11")
-        
+    print ("Fallo al leer el DHT11") 
   sleep(2)
-  
-
